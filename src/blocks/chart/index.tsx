@@ -191,6 +191,8 @@ function rowIsCompleted(row: Row, asOfDate?: Date): boolean {
 		: row.statusCells.at(0);
 	if (!cell) return false;
 	switch (cell.statusValue) {
+		case undefined:
+			return false;
 		case INCOMPLETE_STATUS:
 			return false;
 		case IN_PROGRESS_STATUS:
